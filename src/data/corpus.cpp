@@ -1,5 +1,4 @@
 #include "corpus.h"
-#include <algorithm>
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
