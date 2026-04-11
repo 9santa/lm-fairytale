@@ -5,6 +5,7 @@
 namespace data {
 
 struct CorpusFiles {
+    /* TinyStories dataset already has a train/val split */
     std::string train_text;
     std::string val_text;
 };
