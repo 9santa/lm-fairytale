@@ -11,8 +11,8 @@ class CharTokenizer {
 public:
     void fit(const std::string& text);
 
-    std::vector<uint64_t> encode(const std::string& text) const;
-    std::string decode(const std::vector<uint64_t>& ids) const;
+    std::vector<int64_t> encode(const std::string& text) const;
+    std::string decode(const std::vector<int64_t>& ids) const;
 
     int64_t vocab_size() const;
     bool fitted() const { return fitted_; }
