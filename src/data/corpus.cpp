@@ -1,4 +1,5 @@
 #include "corpus.h"
+#include <cctype>
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
@@ -45,6 +46,9 @@ std::string normalize_text(const std::string& text) {
         if (c >= 'A' && c <= 'Z') {
             c = static_cast<char>(std::tolower(c));
         }
+
+        prev_space = false;
+        out.push_back(c);
     }
 
     return out;
@@ -64,8 +68,8 @@ CorpusFiles load_corpus_files(
     size_t max_val_chars
 ) {
     CorpusFiles corpus;
-    corpus.train_text = maybe_truncate(normalize_text(train_path), max_train_chars);
-    corpus.val_text = maybe_truncate(normalize_text(val_path), max_val_chars);
+    corpus.train_text = maybe_truncate(normalize_text(read_file(train_path)), max_train_chars);
+    corpus.val_text = maybe_truncate(normalize_text(read_file(val_path)), max_val_chars);
 
     if (corpus.train_text.empty()) {
         throw std::runtime_error("Train text is empty after normalization.");
