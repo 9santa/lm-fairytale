@@ -27,5 +27,7 @@ private:
     torch::nn::Sequential net_{nullptr};
 };
 
+TORCH_MODULE(FeedForward);
+
 
 } // namespace models
