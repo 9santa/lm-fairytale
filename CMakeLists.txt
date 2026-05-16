@@ -59,3 +59,13 @@ add_executable(test_feedforward
 target_include_directories(test_feedforward PRIVATE src)
 target_link_libraries(test_feedforward "${TORCH_LIBRARIES}")
 set_property(TARGET test_feedforward PROPERTY CXX_STANDARD 20)
+
+
+# Test: TransformerBlock
+add_executable(test_transformer_block
+    src/test_transformer_block_main.cpp
+)
+
+target_include_directories(test_transformer_block PRIVATE src)
+target_link_libraries(test_transformer_block "${TORCH_LIBRARIES}")
+set_property(TARGET test_transformer_block PROPERTY CXX_STANDARD 20)
