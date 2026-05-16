@@ -91,3 +91,10 @@ $$[h_t = f(x_1,\dots,x_t)]$$
 
 $$[\text{logits}_t = W{out} * h_t]$$
 where $h_t$ is a learned vector representation of the token at position $t$, with 'embedded' context.
+
+
+
+
+
+Why GELU?
+For Transformers, GELU is a very common activation function. ReLU would also work.

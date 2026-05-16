@@ -49,3 +49,13 @@ add_executable(test_multihead_attention
 target_include_directories(test_multihead_attention PRIVATE src)
 target_link_libraries(test_multihead_attention "${TORCH_LIBRARIES}")
 set_property(TARGET test_multihead_attention PROPERTY CXX_STANDARD 20)
+
+
+# Test: FeedForward net
+add_executable(test_feedforward
+    src/test_feedforward_main.cpp
+)
+
+target_include_directories(test_feedforward PRIVATE src)
+target_link_libraries(test_feedforward "${TORCH_LIBRARIES}")
+set_property(TARGET test_feedforward PROPERTY CXX_STANDARD 20)
