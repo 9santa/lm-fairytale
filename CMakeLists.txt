@@ -21,6 +21,8 @@ find_package(Torch REQUIRED)
 # target_link_libraries(train_bigram "${TORCH_LIBRARIES}")
 # set_property(TARGET train_bigram PROPERTY CXX_STANDARD 20)
 
+
+# Test: Embeddings
 add_executable(test_embeddings
     src/test_embeddings_main.cpp
 )
@@ -29,6 +31,7 @@ target_link_libraries(test_embeddings "${TORCH_LIBRARIES}")
 set_property(TARGET test_embeddings PROPERTY CXX_STANDARD 20)
 
 
+# Test: SingleHeadAttention
 add_executable(test_attention
     src/test_attention_main.cpp
 )
@@ -36,3 +39,13 @@ add_executable(test_attention
 target_include_directories(test_attention PRIVATE src)
 target_link_libraries(test_attention "${TORCH_LIBRARIES}")
 set_property(TARGET test_attention PROPERTY CXX_STANDARD 20)
+
+
+# Test: MultiHeadAttention
+add_executable(test_multihead_attention
+    src/test_multihead_attention_main.cpp
+)
+
+target_include_directories(test_multihead_attention PRIVATE src)
+target_link_libraries(test_multihead_attention "${TORCH_LIBRARIES}")
+set_property(TARGET test_multihead_attention PROPERTY CXX_STANDARD 20)
