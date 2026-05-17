@@ -11,7 +11,7 @@ find_package(Torch REQUIRED)
 # )
 # target_link_libraries(lm_fairytale "${TORCH_LIBRARIES}")
 # set_property(TARGET lm_fairytale PROPERTY CXX_STANDARD 20)
-
+#
 # add_executable(train_bigram
 #     src/train_bigram_main.cpp
 #     src/data/char_tokenizer.cpp
@@ -69,3 +69,25 @@ add_executable(test_transformer_block
 target_include_directories(test_transformer_block PRIVATE src)
 target_link_libraries(test_transformer_block "${TORCH_LIBRARIES}")
 set_property(TARGET test_transformer_block PROPERTY CXX_STANDARD 20)
+
+
+# Test: TransformerLM
+add_executable(test_transformer_lm
+    src/test_transformer_lm_main.cpp
+)
+
+target_include_directories(test_transformer_lm PRIVATE src)
+target_link_libraries(test_transformer_lm "${TORCH_LIBRARIES}")
+set_property(TARGET test_transformer_lm PROPERTY CXX_STANDARD 20)
+
+
+# Train TransformerLM
+add_executable(train_transformer
+    src/train_transformer_main.cpp
+    src/data/char_tokenizer.cpp
+    src/data/corpus.cpp
+)
+
+target_include_directories(train_transformer PRIVATE src)
+target_link_libraries(train_transformer "${TORCH_LIBRARIES}")
+set_property(TARGET train_transformer PROPERTY CXX_STANDARD 20)
