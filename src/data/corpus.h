@@ -11,6 +11,8 @@ struct CorpusFiles {
 };
 
 std::string read_file(const std::string& path);
+void write_file(const std::string& path, const std::string& text);
+
 std::string normalize_text(const std::string& text);
 
 CorpusFiles load_corpus_files (

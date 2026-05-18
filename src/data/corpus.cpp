@@ -1,9 +1,9 @@
 #include "corpus.h"
-#include <cctype>
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
 #include <string>
+#include <filesystem>
 
 namespace data {
 
@@ -15,6 +15,22 @@ std::string read_file(const std::string& path) {
     std::ostringstream ss;
     ss << in.rdbuf();
     return ss.str();
+}
+
+void write_file(const std::string &path, const std::string &text) {
+    const auto parent = std::filesystem::path(path).parent_path();
+
+    if (!parent.empty()) {
+        std::filesystem::create_directories(parent);
+    }
+
+    std::ofstream out(path, std::ios::binary);
+
+    if (!out) {
+        throw std::runtime_error("Cannot write file: " + path);
+    }
+
+    out << text;
 }
 
 std::string normalize_text(const std::string& text) {
