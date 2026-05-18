@@ -63,11 +63,7 @@ $$
 
 a language model factorizes the sequence probability as
 
-$$
-P(x_1, x_2, \dots, x_T)
-=
-\prod_{t=1}^{T} P(x_t \mid x_1, \dots, x_{t-1})
-$$
+$$P(x_1, x_2, \dots, x_T) = \prod_{t=1}^{T} P(x_t \mid x_1, \dots, x_{t-1})$$
 
 The training task is next-token prediction.
 
@@ -98,14 +94,7 @@ where: B = batch_size, T = context_len, V = vocab_size
 
 The loss is:
 
-$$
-\mathcal{L}
-=
--\frac{1}{BT}
-\sum_{b=1}^{B}
-\sum_{t=1}^{T}
-\log P_\theta(y_{b,t} \mid x_{b,\leq t})
-$$
+$$\mathcal{L}=-\frac{1}{BT}\sum_{b=1}^{B}\sum_{t=1}^{T}\log P_\theta(y_{b,t} \mid x_{b,\leq t})$$
 
 ---
 
