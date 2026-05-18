@@ -562,6 +562,7 @@ This suggests the smaller SentencePiece Transformer was capacity-limited.
 
 ## Limitations
 
+- Local training is very limited due to the GPU.
 - The project uses only a 5M-character subset of TinyStories for most experiments.
 - The model is still very small compared to modern LLMs.
 - The model has no instruction tuning or RLHF.
